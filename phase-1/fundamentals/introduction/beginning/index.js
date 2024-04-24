@@ -80,12 +80,14 @@ console.log(double(numberz));
 
 const words = ['ONE', 'TWO','THREE']
 function lowercase(words){
-    let copyWords = []
-    words.forEach((num, index)=> {
-       copyWords[index] = num.toLowerCase();
+    let copyWords = [] // I initialize this variable localy to later return the value as a copy and *not* modify the original 'words' variable.
+    words.forEach((num, index)=> { // I used forEach with the parameters, 'num' focused on the elemnents and 'index' focused on the index# of the array.
+       copyWords[index] = num.toLowerCase(); // I 
     })
     return copyWords
 }
 
 console.log(lowercase(words));
 console.log(words);
+
+
