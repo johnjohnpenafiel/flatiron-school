@@ -36,6 +36,56 @@ Core Deliverables
 
 // CHALLENGES
 // Try these practice problems on your own to reinforce this lesson's material :)
+
 // 1. Write a function named `sum` that takes an array of `numbers` and returns its sum.
+
+const numbers = [1,2,3];
+
+function sum(numbers) {
+    let total = 0; // I initialize a variable that will store the sum of the array
+    for (let i = 0; i < numbers.length; i++) { // for *loop* (initialization; condition; iteration)
+        total += numbers[i]; // we add the corresponding array number in the 'Total' variable. // '+=' short for total = total + numbers[i]
+    }
+    return total;
+}
+
 // 2. Write a function named `double` that takes an array of `numbers` and doubles each of its values.
+
+// Creates a new array inside the function
+const number = [2,5,10]; 
+
+function double(number) {
+    let doubledNumbers = []; // Initialize a variable with that contains an array that will store(localy) and return the result(line 61). 
+    number.forEach(function(num) { //using forEach we create a function that .push (num * 2) into doubleNumbers.
+        doubledNumbers.push(num * 2); 
+    });
+    return doubledNumbers; // doubleNUmbers is returned localy inside double(numbers).
+}
+console.log(double(number));
+
+// Modifies the array
+const numberz = [2,5,10];
+
+function double(numberz) {
+    numberz.forEach((num, index, arr) => { // here I 
+        arr[index] = num * 2;
+    });
+    return numberz;
+}
+
+console.log(double(numberz));
+
+
 // 3. Write a function named `lowercase` that takes an array of `words` and returns a lowercased copy.
+
+const words = ['ONE', 'TWO','THREE']
+function lowercase(words){
+    let copyWords = []
+    words.forEach((num, index)=> {
+       copyWords[index] = num.toLowerCase();
+    })
+    return copyWords
+}
+
+console.log(lowercase(words));
+console.log(words);
