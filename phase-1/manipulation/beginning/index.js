@@ -43,4 +43,25 @@ Challenges
 // 2. Replace the <strong> element with a newly created one.
 
 
+document.querySelector('#tomorrow').textContent = "yesterday";
+
+
+
+// This is how you add an element that contains a string to the Html using Javascript.
+
+const infinity = document.createElement('p'); // create the element and store in a variable for easy access.
+
+infinity.textContent = "infinity"; // add a string to the element using a property.
+
+document.querySelector('#dates').append(infinity); // append the element to the wnanted location on the html document.
+
+
+
+// creating a secondary heading h2
+const newH2 = document.createElement('h2'); //I create an element "h2" and store it in the variable 'newH2'
+newH2.textContent = 'Creating Elements'; 
+document.querySelector('h1').append(newH2);
+
+
+
 
