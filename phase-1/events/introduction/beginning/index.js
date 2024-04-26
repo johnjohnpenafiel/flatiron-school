@@ -63,6 +63,7 @@ document.querySelector('#imgSearch').addEventListener('submit', (event) => {
     const imageUrl = event.target['url'].value;
     const newImage =  document.querySelector('#newImage')
     newImage.src = imageUrl;
+    document.querySelector('#form').reset();
 })
 
 
