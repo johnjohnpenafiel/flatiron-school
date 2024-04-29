@@ -1,0 +1,32 @@
+{
+    "cats": [
+        {
+            "id": "1",
+            "name": "Octavia",
+            "age" : "12",
+            "isACat" : true,
+            "favoriteFood" : ["Salmon"]
+        },
+        {
+            "id": "2",
+            "name": "Ursula",
+            "age" : "12",
+            "isACat" : true,
+            "favoriteFood" : ["Cod"]
+        }
+    ],
+    "dogs": [
+        {
+            "id": "1",
+            "name": "Benji",
+            "age" : "unknown",
+            "isGoodDog" : true
+        },
+        {
+            "id": "2",
+            "name": "Max",
+            "age" : "3",
+            "isGoodDog" : false
+        }
+    ]
+}

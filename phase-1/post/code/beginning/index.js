@@ -13,6 +13,18 @@ Objectives
 */
 
 // Let's try making a GET request to display existing data on the page.
+fetch("http://localhost:3000/dogs")
+.then((response) => response.json())
+.then(dogs => {
+    const ul = document.querySelector('#dogs');
+    for (let i = 0; i < dogs.lenght; i++) {
+        console.log(dogs[i]);
+    };
+   
+    dogs.forEach(dog => console.log(dog));
+
+});
+
 
 // Now, let's trigger a POST request when the user submits the form,
 // so that they can add data to the database! Remember to think about
