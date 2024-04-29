@@ -1,5 +1,4 @@
 /*
-
 Phase 1 -> Creating data with JSON Server and POST requests
 Updated March 15, 2024
 Created May 26, 2023
@@ -9,60 +8,50 @@ Objectives
 1. Run an instance of JSON Server that hosts a dataset.
 1. Make a GET request to display a dataset.
 2. Make a POST request to add to that dataset.
-
 */
 
 // Let's try making a GET request to display existing data on the page.
-fetch("http://localhost:3000/dogs")
-.then((response) => response.json())
-.then(dogs => {
-    const ul = document.querySelector('#dogs');
-    dogs.forEach(dog => {
-        const li = document.createElement('li');
-        li.textContent = `${dog.name} (${dog.age})`;
-        ul.append(li);
-    });
-    dogs.forEach(dog => {
-        const li = document.createElement('li');
-        li.textContent = `${dog.name} (${dog.age})`;
-        ul.append(li);
-    // this is the same as...
-    //for (let i = 0; i < dogs.lenght; i++) {
-    //    console.log(dogs[i]);
-    //};
+fetch("http://localhost:3000/dogs") //Fetch the data from the specific URL
+.then((response) => response.json()) //Parse the response as JSON - [GET REQUEST]
+.then(dogs => { //Process the JSON data.  [GET REQUEST]
+    const ul = document.querySelector('#dogs'); //Select the Ul element with the ID dogs
+    dogs.forEach(dog => { //Loop through each dog in the 'dogs' array
+        const li = document.createElement('li'); //Create a new <li> element
+        li.textContent = `${dog.name} (${dog.age})`; //Set the text content of the <li> element to the dog's name and age
+        ul.append(li); //Append the <li> element to the <ul> element
     });
 });
-
 
 // Now, let's trigger a POST request when the user submits the form,
 // so that they can add data to the database! Remember to think about
 // the event, the target, and the handler when planning a listener.
 
-document.querySelector('form').addEventListener('submit', event => {
-    event.preventDefault();
-    const dogName = event.target.name.value;
-    const dogAge = event.target.age.value;
-    console.log(dogName + dogAge);
-    fetch("http://localhost:3000/dogs", {
-        method : "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept" : "application/json"
+document.querySelector('form').addEventListener('submit', event => { //Add an event listener to the form for the "submit" event.
+    event.preventDefault(); //Prevent the defualt form submission behavior
+    const dogName = event.target.name.value; //Get the values of the 'name' input fields from the form
+    const dogAge = event.target.age.value; //Get the values of the 'age' input fields from the form
+    //console.log(dogName + dogAge); //Log the concatenated string of dogName and dogAge to the console
+    fetch("http://localhost:3000/dogs", { // Make a POST request to the specified URL (http://localhost:3000/dogs) with the form data
+        method : "POST", //Specify the HTTP method as POST
+        headers: { //Set the request headers
+            "Content-Type": "application/json", //Specify the content type as JSON
+            "Accept" : "application/json" //Specify the accepted response type as JSON
         },
-        body: JSON.stringify({
-            name : dogName,
+        body: JSON.stringify({ //Convert the form data to a JSON string
+            name : dogName, 
             age : dogAge,
-            isGoodDog : true
+            isGoodDog : true //Example additional data
         })
     })
-    .then(response => response.json())
-    .then(newDog => {
-        console.log(newDog);
-        const ul = document.querySelector('#dogs')
-        const li = document.createElement('li');
-        li.textContent = `${dog.name} (${dog.age})`;
-        ul.append(li);
+    .then(response => response.json()) //Parse the response as JSON
+    .then(newDog => { //Process the JSON data
+        //console.log(newDog); //Log the new dog object to the console
+        const ul = document.querySelector('#dogs') //Select the <ul> element with the ID 'dogs'
+        const li = document.createElement('li'); //Create a new <li> element
+        li.textContent = `${newDog.name} (${newDog.age})`; //Set the text content of the <li> element to the new dog's name and age
+        ul.append(li); //Append the <li> element to the <ul> element
     })
+    document.querySelector('form').reset(); //Reset the form fields
 });
 
 
