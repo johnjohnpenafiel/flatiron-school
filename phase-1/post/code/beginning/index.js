@@ -17,20 +17,20 @@ fetch("http://localhost:3000/dogs")
 .then((response) => response.json())
 .then(dogs => {
     const ul = document.querySelector('#dogs');
-   
-   /*
-    // this is the same as...
-    for (let i = 0; i < dogs.lenght; i++) {
-        console.log(dogs[i]);
-    };
-    */
-   //...this
     dogs.forEach(dog => {
         const li = document.createElement('li');
         li.textContent = `${dog.name} (${dog.age})`;
         ul.append(li);
     });
-
+    dogs.forEach(dog => {
+        const li = document.createElement('li');
+        li.textContent = `${dog.name} (${dog.age})`;
+        ul.append(li);
+    // this is the same as...
+    //for (let i = 0; i < dogs.lenght; i++) {
+    //    console.log(dogs[i]);
+    //};
+    });
 });
 
 
