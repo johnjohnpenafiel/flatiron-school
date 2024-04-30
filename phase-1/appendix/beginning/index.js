@@ -46,6 +46,7 @@ Takeaways
 console.log("~~IMMEDIATE INVOCATION~~");
 // We can immediately invoke functions upon declaration with (definition)(arguments).
 
+
 // ~ Context
 console.log("~~CONTEXT~~");
 // -> A function's **context** is an object it can access with the keyword `this`.
@@ -71,3 +72,13 @@ console.log("~~ADVANCED ARRAY METHODS~~");
 // 1. Write a function that takes an array of sentences and returns only those that are questions.
 // 2. Write a function that takes an array of lowercased sentences and returns them capitalized.
 const phrases = ["hello, there!", "how are you?", "It's me!"]; // example array for #1 and #2
+
+//Challenge 1
+const getQuestions = phrases.filter(questions => questions.endsWith('?'));
+console.log(getQuestions); 
+
+//Challenge 2
+const capitalized = phrases.map(arr => arr.toUpperCase());
+console.log(capitalized);
+
+console.log(phrases);
